@@ -38,6 +38,14 @@ enum charybdis_keymap_layers {
 #define MAC_H LGUI(KC_GRV)
 #define RESET QK_BOOT
 
+// https://github.com/bzy107/qmk_firmware/blob/master/keyboards/bastardkb/charybdis/readme.md
+// #define CHARYBDIS_MINIMUM_DEFAULT_DPI 400
+// #define CHARYBDIS_DEFAULT_DPI_CONFIG_STEP 200
+// #define CHARYBDIS_DRAGSCROLL_REVERSE_Y
+
+// https://github.com/Schievel1/dactyl_manuform_r_track#other-things-to-set-in-the-firmware
+// charybdisで使用できるキーコードの記載がある
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /* ZERO
@@ -80,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
           KC_ESC,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,      KC_PLUS, KC_F1 ,  KC_F2 ,  KC_F3,  KC_F4,
      // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-          KC_TAB,  KC_PERC, KC_ASTR, KC_AMPR, KC_QUOT,     KC_EQL , KC_F5 ,  KC_F6 ,  KC_F7 ,  MT(KC_F8, SIX),
+          KC_TAB,  KC_PERC, KC_ASTR, KC_AMPR, KC_QUOT,     KC_EQL , KC_F5 ,  KC_F6 ,  KC_F7 ,  LT(SIX, KC_F8),
      // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
           KC_LCTL, KC_GRV , KC_CIRC, KC_BSLS, KC_LSFT,     KC_MINS, KC_BTN1 ,KC_BTN2, KC_F9,  _______,
      // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
@@ -106,11 +114,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,       KC_EQL , KC_LEFT, KC_LPRN,  KC_RIGHT, KC_RPRN,
      // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-          KC_LCTL, KC_TAB,  KC_RALT, KC_LSFT, FIVE,       KC_MINS, KC_NO, KC_DOWN,  KC_LCBR,  MT(KC_RCBR, FOUR),
+          KC_LCTL, KC_TAB,  KC_RALT, KC_LSFT, FIVE,       KC_MINS, KC_NO, KC_DOWN,  KC_LCBR,  LT(FOUR, KC_RCBR),
      // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
                          _______, KC_SPC,  KC_LSFT,    KC_DEL, MT(MOD_LGUI, KC_ENT)
      //                   ╰───────────────────────────╯ ╰──────────────────╯
      ),
+
      /* THREE
      *
      * ,----------------------------------.           ,----------------------------------.
@@ -135,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      //                   ╰───────────────────────────╯ ╰──────────────────╯
      ),
 
-     /* FOUR
+     /* FOUR (trackball module)
      *
      * ,----------------------------------.           ,----------------------------------.
      * |      |      |      |      |      |           |      |      |      |      |      |
@@ -149,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
      [_FOUR] = LAYOUT(
      // ╭─────────────────────────────────────────────╮ ╭─────────────────────────────────────────────╮
-          KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+          DPI_MOD, S_D_MOD, KC_NO, KC_NO, KC_NO,           KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
      // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
-          KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+          DPI_RMOD, S_D_RMOD, KC_NO, KC_NO, KC_NO,         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
      // ├─────────────────────────────────────────────┤ ├─────────────────────────────────────────────┤
           KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,               KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
      // ╰─────────────────────────────────────────────┤ ├─────────────────────────────────────────────╯
