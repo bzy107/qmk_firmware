@@ -46,6 +46,8 @@ enum charybdis_keymap_layers {
 // https://github.com/Schievel1/dactyl_manuform_r_track#other-things-to-set-in-the-firmware
 // charybdisで使用できるキーコードの記載がある
 
+// #define CHARYBDIS_DRAGSCROLL_REVERSE_X
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      /* ZERO
@@ -245,6 +247,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     layer_off(_TWO);
                     update_tri_layer(_TWO, _FOUR, _FIVE);
                }
+               charybdis_set_pointer_dragscroll_enabled(record->event.pressed);
                return false;
                break;
           case THREE:
@@ -253,6 +256,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                } else {
                     layer_off(_THREE);
                }
+               charybdis_set_pointer_dragscroll_enabled(record->event.pressed);
                return false;
                break;
           case FOUR:
@@ -261,6 +265,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                } else {
                     layer_off(_FOUR);
                }
+               charybdis_set_pointer_dragscroll_enabled(record->event.pressed);
                return false;
                break;
           case FIVE:
@@ -269,6 +274,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                } else {
                     layer_off(_FIVE);
                }
+               charybdis_set_pointer_dragscroll_enabled(record->event.pressed);
                break;
           case SIX:
                if (record->event.pressed) {
@@ -276,6 +282,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                } else {
                     layer_off(_SIX);
                }
+               charybdis_set_pointer_dragscroll_enabled(record->event.pressed);
                break;
      }
      return true;
