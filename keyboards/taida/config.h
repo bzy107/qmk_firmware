@@ -19,4 +19,7 @@
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
 #define SOFT_SERIAL_PIN D2
+
+#define PMW33XX_CS_PIN B6
+
 #define MASTER_RIGHT
